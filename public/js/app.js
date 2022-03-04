@@ -13,11 +13,7 @@ weatherForm.addEventListener("submit", (e) => {
   messageOne.textContent = "Loading...";
   messageTwo.textContent = "";
 
-  fetch(
-    "http://api.weatherstack.com/current?access_key=bb634cc1332d8a55cd4585811f9a12f8&query=" +
-      location +
-      "&units=f"
-  ).then((response) => {
+  fetch("/weather?adddress" + location + "&units=f").then((response) => {
     response.json().then((data) => {
       if (data.error) {
         messageOne.textContent = data.error.info;

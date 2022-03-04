@@ -14,7 +14,7 @@ const forecast = (latitude, longitude, callback) => {
       console.log(body.error);
       callback("Unable to find location, please retry!", undefined);
     } else {
-      console.log(body.current.weather_descriptions[0]);
+      // console.log(body.current.weather_descriptions[0]);
       callback(
         undefined,
         "here in " +
