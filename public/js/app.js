@@ -13,17 +13,22 @@ weatherForm.addEventListener("submit", (e) => {
   messageOne.textContent = "Loading...";
   messageTwo.textContent = "";
 
-  fetch("/weather?adddress" + location + "&units=f").then((response) => {
+  fetch(
+    "/current?access_key=bb634cc1332d8a55cd4585811f9a12f8&query=" +
+      location +
+      "&units=f"
+  ).then((response) => {
     response.json().then((data) => {
       if (data.error) {
         messageOne.textContent = data.error.info;
-        console.log(data.error);
+        // console.log(data.error);
       } else {
         messageOne.textContent = data.location.name;
         messageTwo.textContent =
           data.current.weather_descriptions[0] +
           " with a temp of " +
-          data.current.temperature;
+          data.current.temperature +
+          "°F";
         // console.log(data);
       }
     });
